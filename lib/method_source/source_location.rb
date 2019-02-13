@@ -9,11 +9,11 @@ module MethodSource
 
   module SourceLocation
     module MethodExtensions
-      puts Proc.method_defined? :__file__
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
       elsif defined?(RUBY_ENGINE) && RUBY_ENGINE =~ /jruby/
+        puts 'jaaaa'
         require 'java'
 
         # JRuby version source_location hack
