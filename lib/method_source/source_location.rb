@@ -13,7 +13,6 @@ module MethodSource
         include ReeSourceLocation
 
       elsif defined?(RUBY_ENGINE) && RUBY_ENGINE =~ /jruby/
-        puts 'jaaaa'
         require 'java'
 
         # JRuby version source_location hack
@@ -22,6 +21,7 @@ module MethodSource
           to_java.source_location(Thread.current.to_java.getContext())
         end
       else
+        puts 'jaaaa'
 
 
         def trace_func(event, file, line, id, binding, classname)
