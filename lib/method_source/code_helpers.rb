@@ -23,6 +23,8 @@ module MethodSource
         :consume => 0
       }.merge!(options)
 
+      binding.pry
+
       lines = file.is_a?(Array) ? file : file.each_line.to_a
 
       relevant_lines = lines[(line_number - 1)..-1] || []
