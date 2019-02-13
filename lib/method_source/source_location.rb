@@ -3,7 +3,6 @@ module MethodSource
     # Ruby enterprise edition provides all the information that's
     # needed, in a slightly different way.
     def source_location
-      binding.pry
       [__file__, __line__] rescue nil
     end
   end
