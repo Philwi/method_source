@@ -25,7 +25,7 @@ module MethodSource
 
 
       puts "line number of file = #{line_number}"
-      puts "file = #{file}"
+      puts "file = #{file.lines}"
       lines = file.is_a?(Array) ? file : file.each_line.to_a
 
       relevant_lines = lines[(line_number - 1)..-1] || []
