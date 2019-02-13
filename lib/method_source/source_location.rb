@@ -18,6 +18,7 @@ module MethodSource
         # JRuby version source_location hack
         # @return [Array] A two element array containing the source location of the method
         def source_location
+          binding.pry
           to_java.source_location(Thread.current.to_java.getContext())
         end
       else
@@ -99,7 +100,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
-          binding.pry
           klass = case owner
                   when Class
                     owner
