@@ -23,7 +23,6 @@ module MethodSource
   def self.source_helper(source_location, name=nil)
     raise SourceNotFoundError, "Could not locate source for #{name}!" unless source_location
     file, line = *source_location
-    binding.pry
 
     expression_at(lines_for(file), line)
   rescue SyntaxError => e

@@ -9,6 +9,7 @@ module MethodSource
 
   module SourceLocation
     module MethodExtensions
+      binding.pry
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
@@ -52,6 +53,7 @@ module MethodSource
     end
 
     module ProcExtensions
+      binding.pry
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
@@ -79,6 +81,7 @@ module MethodSource
     end
 
     module UnboundMethodExtensions
+      binding.pry
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
