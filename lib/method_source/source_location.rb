@@ -99,6 +99,7 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
+          binding.pry
           klass = case owner
                   when Class
                     owner
