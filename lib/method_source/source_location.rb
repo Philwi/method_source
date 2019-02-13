@@ -3,7 +3,6 @@ module MethodSource
     # Ruby enterprise edition provides all the information that's
     # needed, in a slightly different way.
     def source_location
-      binding.pry
       [__file__, __line__] rescue nil
     end
   end
@@ -19,14 +18,12 @@ module MethodSource
         # JRuby version source_location hack
         # @return [Array] A two element array containing the source location of the method
         def source_location
-          binding.pry
           to_java.source_location(Thread.current.to_java.getContext())
         end
       else
 
 
         def trace_func(event, file, line, id, binding, classname)
-          binding.pry
           return unless event == 'call'
           set_trace_func nil
 
@@ -41,7 +38,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
-          binding.pry
           if @file.nil?
             args =[*(1..(arity<-1 ? -arity-1 : arity ))]
 
@@ -66,7 +62,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   proc definition is found.
         def source_location
-          binding.pry
           [block.file.to_s, block.line]
         end
       else
@@ -77,7 +72,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   proc definition is found.
         def source_location
-          binding.pry
           self.to_s =~ /@(.*):(\d+)/
           [$1, $2.to_i]
         end
@@ -85,6 +79,7 @@ module MethodSource
     end
 
     module UnboundMethodExtensions
+      puts Proc.method_defined? :__file__
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
@@ -94,7 +89,6 @@ module MethodSource
         # JRuby version source_location hack
         # @return [Array] A two element array containing the source location of the method
         def source_location
-          binding.pry
           to_java.source_location(Thread.current.to_java.getContext())
         end
 
@@ -106,7 +100,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
-          binding.pry
           klass = case owner
                   when Class
                     owner
