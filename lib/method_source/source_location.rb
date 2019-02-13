@@ -23,7 +23,7 @@ module MethodSource
       else
 
         def trace_func(event, file, line, id, binding, classname)
-          binding.pry
+          puts 'jaaaaaa'
           return unless event == 'call'
           set_trace_func nil
 
