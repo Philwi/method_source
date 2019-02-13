@@ -21,10 +21,9 @@ module MethodSource
           to_java.source_location(Thread.current.to_java.getContext())
         end
       else
-        puts 'jaaaa'
-
 
         def trace_func(event, file, line, id, binding, classname)
+          binding.pry
           return unless event == 'call'
           set_trace_func nil
 
