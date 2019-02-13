@@ -8,8 +8,8 @@ module MethodSource
   end
 
   module SourceLocation
-    puts 'halllllllllllllllllllll'
     module MethodExtensions
+      puts Proc.method_defined? :__file__
       if Proc.method_defined? :__file__
         include ReeSourceLocation
 
