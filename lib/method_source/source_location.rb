@@ -23,7 +23,6 @@ module MethodSource
       else
 
         def trace_func(event, file, line, id, binding, classname)
-          puts 'jaaaaaa'
           return unless event == 'call'
           set_trace_func nil
 
@@ -38,6 +37,7 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
+          puts 'halloooo'
           if @file.nil?
             args =[*(1..(arity<-1 ? -arity-1 : arity ))]
 
