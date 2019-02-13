@@ -37,7 +37,6 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
-          puts 'halloooo'
           if @file.nil?
             args =[*(1..(arity<-1 ? -arity-1 : arity ))]
 
@@ -72,6 +71,7 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   proc definition is found.
         def source_location
+          puts 'ProcExtensions'
           self.to_s =~ /@(.*):(\d+)/
           [$1, $2.to_i]
         end
@@ -99,6 +99,7 @@ module MethodSource
         #   file, second element is the line in the file where the
         #   method definition is found.
         def source_location
+          puts 'UnboundMethod'
           klass = case owner
                   when Class
                     owner
